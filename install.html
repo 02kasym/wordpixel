@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1026" />
+    <title>WORDPIXEL — как поставить</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <style>
+      :root {
+        --night: #0b1026;
+        --panel: #151b3d;
+        --ink: #1d1b2a;
+        --text: #f3ecd7;
+        --dim: #b9b2a0;
+        --gold: #ffd34d;
+        --green: #5fd35a;
+        --wood: #8a5a2b;
+        --wood-dark: #4a2e14;
+        --px: 4px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: #05070f;
+        color: var(--text);
+        font: 16px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+      main {
+        max-width: 520px;
+        min-height: 100dvh;
+        margin: 0 auto;
+        padding: calc(24px + env(safe-area-inset-top)) 16px 40px;
+        background: radial-gradient(circle at 50% 0, #1d2556, var(--night) 55%);
+      }
+      header { text-align: center; }
+      header img {
+        width: 112px;
+        height: 112px;
+        border-radius: 26px;
+        image-rendering: pixelated;
+        box-shadow: 0 6px 0 rgb(0 0 0 / 0.45);
+      }
+      h1 {
+        margin: 16px 0 4px;
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+        color: var(--gold);
+        text-shadow: 3px 3px 0 var(--ink);
+      }
+      .tagline { margin: 0 0 24px; color: var(--dim); }
+      .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+      .tabs button {
+        min-height: 48px;
+        border: 0;
+        font: inherit;
+        font-weight: 700;
+        color: var(--text);
+        background: rgb(255 255 255 / 0.08);
+        cursor: pointer;
+        box-shadow: 0 calc(var(--px) * -1) 0 var(--ink), 0 var(--px) 0 var(--ink), calc(var(--px) * -1) 0 0 var(--ink), var(--px) 0 0 var(--ink);
+      }
+      .tabs button[aria-selected='true'] { color: var(--ink); background: var(--gold); }
+      section {
+        padding: 20px 16px;
+        background: var(--panel);
+        box-shadow: 0 calc(var(--px) * -1) 0 var(--wood-dark), 0 var(--px) 0 var(--wood-dark), calc(var(--px) * -1) 0 0 var(--wood-dark), var(--px) 0 0 var(--wood-dark);
+      }
+      section[hidden] { display: none; }
+      h2 { margin: 0 0 12px; font-size: 1.25rem; }
+      ol { margin: 0; padding-left: 1.4em; }
+      li { margin: 10px 0; }
+      li strong { color: var(--gold); }
+      .button {
+        display: block;
+        margin: 4px 0 18px;
+        padding: 14px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        color: var(--ink);
+        background: var(--gold);
+        box-shadow: 0 calc(var(--px) * -1) 0 var(--ink), 0 var(--px) 0 var(--ink), calc(var(--px) * -1) 0 0 var(--ink), var(--px) 0 0 var(--ink), inset 0 -6px 0 #c99a1f;
+      }
+      .button:active { transform: translateY(var(--px)); }
+      .note {
+        margin: 16px 0 0;
+        padding: 12px;
+        font-size: 0.92rem;
+        color: var(--dim);
+        background: rgb(0 0 0 / 0.25);
+      }
+      .facts { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+      .facts li { margin: 0; padding-left: 28px; position: relative; color: var(--dim); }
+      .facts li::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 0.55em;
+        width: 10px;
+        height: 10px;
+        background: var(--green);
+      }
+      .facts strong { color: var(--text); }
+      footer { margin-top: 28px; text-align: center; font-size: 0.85rem; color: var(--dim); }
+      footer a { color: #ffe9b8; }
+      :focus-visible { outline: var(--px) dashed var(--gold); outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="icon-192.png" alt="" width="112" height="112" />
+        <h1>WORDPIXEL</h1>
+        <p class="tagline">5000 самых частых английских слов.<br />Бесплатно, без рекламы, без интернета.</p>
+      </header>
+
+      <div class="tabs" role="tablist" aria-label="Телефон">
+        <button type="button" role="tab" id="tab-android" aria-controls="android" aria-selected="true">Android</button>
+        <button type="button" role="tab" id="tab-iphone" aria-controls="iphone" aria-selected="false">iPhone</button>
+      </div>
+
+      <section id="android" role="tabpanel" aria-labelledby="tab-android">
+        <h2>Android</h2>
+        <a class="button" href="WORDPIXEL.apk" download>Скачать для Android</a>
+        <ol>
+          <li>Нажми кнопку выше и открой скачанный файл <strong>WORDPIXEL.apk</strong>.</li>
+          <li>Телефон спросит, можно ли ставить приложения из этого места — нажми <strong>«Настройки»</strong> и включи <strong>«Разрешить из этого источника»</strong>, потом вернись назад.</li>
+          <li>Нажми <strong>«Установить»</strong>. Если Google предупредит, что приложение неизвестное, выбери <strong>«Всё равно установить»</strong> — его просто нет в Google Play.</li>
+          <li>На экране появится иконка с рыцарем — открывай её.</li>
+        </ol>
+        <p class="note">Новая версия ставится так же — поверх старой. Прогресс при этом сохраняется.</p>
+      </section>
+
+      <section id="iphone" role="tabpanel" aria-labelledby="tab-iphone" hidden>
+        <h2>iPhone</h2>
+        <a class="button" href="./">Открыть приложение</a>
+        <ol>
+          <li>Открой эту страницу именно в <strong>Safari</strong> (не в Chrome и не внутри Telegram) и нажми кнопку выше.</li>
+          <li>Внизу нажми <strong>«Поделиться»</strong> — квадрат со стрелкой вверх.</li>
+          <li>Пролистай вниз и выбери <strong>«На экран «Домой»»</strong>, затем <strong>«Добавить»</strong>.</li>
+          <li>Открывай приложение с иконки рыцаря на экране — оно запустится на весь экран.</li>
+        </ol>
+        <p class="note">После первого запуска интернет не нужен. Новые версии приходят сами, когда приложение открыто с интернетом.</p>
+      </section>
+
+      <ul class="facts">
+        <li><strong>Прогресс хранится только в твоём телефоне.</strong> Раз в неделю сохраняй его в файл: «Настройки» → «Сохранить прогресс в файл». С этим файлом можно продолжить на другом телефоне.</li>
+        <li><strong>По умолчанию 20 новых слов в день</strong> — около 10–12 минут. Темп меняется в настройках.</li>
+        <li><strong>Уровни открываются по порядку</strong>, звёзды показывают, сколько слов уровня уже выучено.</li>
+      </ul>
+
+      <footer>
+        Список слов — NGSL-GR 1.0 (Charles Browne, Brent Culligan),
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+      </footer>
+    </main>
+    <script>
+      // Shows the instructions for the visitor's phone first; both stay one tap away.
+      const tabs = { android: document.getElementById('tab-android'), iphone: document.getElementById('tab-iphone') }
+      function show(name) {
+        for (const [key, tab] of Object.entries(tabs)) {
+          tab.setAttribute('aria-selected', String(key === name))
+          document.getElementById(key).hidden = key !== name
+        }
+      }
+      tabs.android.addEventListener('click', () => show('android'))
+      tabs.iphone.addEventListener('click', () => show('iphone'))
+      const ua = navigator.userAgent
+      const isAndroid = /Android/i.test(ua)
+      // iPads report themselves as a Mac with a touch screen.
+      const isIos = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+      if (isIos && !isAndroid) show('iphone')
+    </script>
+  </body>
+</html>
